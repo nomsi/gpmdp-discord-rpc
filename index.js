@@ -60,8 +60,6 @@ function update() {
                 instance: false
             });
         }
-        console.log(data);
-        console.log(timestamp);
     }).catch(console.error);
 }
 
