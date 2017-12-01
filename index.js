@@ -39,7 +39,6 @@ function update() {
     readFileAsync(filepath, 'utf8').then((_data) => {
         const data = JSON.parse(_data);
         if (data.playing == true) {
-            console.log(`${data.song.artist} - ${data.song.title}`);
             rpc.setActivity({
                 details: `${data.song.title}`,
                 state: `${data.song.artist}`,
@@ -60,7 +59,7 @@ function update() {
  * RPC Ready Event
  */
 rpc.on('ready', () => {
-    console.log('Client ready.');
+    console.log('Client ready. Listening for changes.');
     update();
     setInterval(() => update(), 15e3);
 });
